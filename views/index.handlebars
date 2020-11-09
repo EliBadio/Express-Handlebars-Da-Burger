@@ -1,0 +1,46 @@
+<main class="container">
+  <div class="d-flex justify-content-center">
+    <img src="../assets/img/burger.png" alt="Burger image"></a>
+  </div>
+
+  <h2>Eat-Da-Burger!</h2>
+  <div class="row d-flex">
+
+    {{!-- ordered burgers --}}
+    <div class="col">
+      <ul>
+        {{#each burger}}
+        {{#unless devoured}}
+        <li>
+          <span>{{id}}. {{burger_name}}</span>
+          <button class="eatBtn btn btn-light devour" id="{{id}}">Devour It!</button>
+        </li>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+
+    {{!-- Devoured burgers --}}
+    <div class="col">
+      <ul>
+        {{#each burger}}
+        {{#if devoured}}
+        <li class="devoured">
+          {{id}}. {{burger_name}}
+        </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+
+    {{!-- Add burger form  --}}
+    <form class="create-form">
+      <div class="form-group">
+        <textarea class="form-control rounded-0" id="new-burger" rows="3" name="name"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p>Enter a burger you want to eat click the "Submit" button.</p>
+    </form>
+  </div>
+</main>
